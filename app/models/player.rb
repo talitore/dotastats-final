@@ -24,9 +24,9 @@ class Player < ActiveRecord::Base
 private
   def self.get_p(player_info)
     if player_info == ANON_STEAM_ID
-      player = Players.find_or_create_by(steamid: 76561202255233023, personaname: "Anonfag")
+      player = Players.find_or_create_by(steam_id: 76561202255233023, personaname: "Anonfag")
     else
-      player = Players.find_or_create_by(steamid: player_info[:steamid].to_i)
+      player = Players.find_or_create_by(steam_id: player_info[:steam_id].to_i)
       player.attributes = MyUtils.hash_nonintersect_to_s(player_info, player.attributes)
     end
     return player if player.save

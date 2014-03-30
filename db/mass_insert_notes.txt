@@ -1,0 +1,91 @@
+m.each do |match|
+if match.players
+match.players.each do |player|
+p = Players.find_by_steamid(MyUtils.to_64bit(player['account_id'].to_i))
+if p && p.id !=1
+mh = MatchHistory.find_or_initialize_by(players_id: p.id)
+if mh.matches.blank?
+mh.update(matches: match.id.to_s)
+elsif
+mh.matches = mh.matches.to_s + ',' + match.id.to_s
+end
+mh.save
+end
+end
+end
+end
+
+
+m.each do |match|
+	if match.players
+		match.players.each do |player|
+			p = Players.find_by_steamid(MyUtils.to_64bit(player['account_id'].to_i))
+			if p && p.id !=1
+				mh = MatchHistory.new(players_id: p.id, match_id: match.id)
+				mh.save
+			end
+		end
+	end
+end
+
+#Mass inserts
+m = Matches.all
+inserts = []
+m.each do |match|
+if match.players
+match.players.each do |player|
+pid = MyUtils.to_64bit(player['account_id'].to_i)
+if pid !=76561202255233023
+inserts.push "(#{pid},#{match.id})"
+puts "Inserts (#{pid},#{match.id})"
+end
+end
+end
+end
+
+CONN = ActiveRecord::Base.connection
+sql = "insert into match_histories (`players_id`, `matches_id`) VALUES #{inserts[0..500000].join(", ")}"
+sql2 = "insert into match_histories (`players_id`, `matches_id`) VALUES #{inserts[500001..-1].join(", ")}"
+CONN.execute sql
+
+
+
+{"account_id":3383954,"player_slot":0,"hero_id":0},{"account_id":2275162,"player_slot":1,"hero_id":110},{"account_id":958532,"player_slot":2,"hero_id":57},{"account_id":184377,"player_slot":3,"hero_id":85},{"account_id":749868,"player_slot":4,"hero_id":12},{"account_id":19048731,"player_slot":128,"hero_id":9},{"account_id":22089168,"player_slot":129,"hero_id":109},{"account_id":35932650,"player_slot":130,"hero_id":34},{"account_id":57472615,"player_slot":131,"hero_id":99},{"account_id":107217980,"player_slot":132,"hero_id":5}
+
+(76561197962540890,76561197961224260,76561197960450105,76561197961015596,76561197963649682,76561197979314459,76561197982354896,76561197996198378,76561198017738343,76561198067483708)
+
+76561197962540890
+76561197961224260
+76561197960450105
+76561197961015596
+76561197963649682
+76561197979314459
+76561197982354896
+76561197996198378
+76561198017738343
+76561198067483708
+
++-------------------+
+| steam_id          |
++-------------------+
+| 76561197960450105 |
+| 76561197961015596 |
+| 76561197961224260 |
+| 76561197962540890 |
+| 76561197963649682 |
+| 76561197979314459 |
+| 76561197982354896 |
+| 76561197996198378 |
+| 76561198017738343 |
+| 76561198067483708 |
++-------------------+
+[76561197960450105, 
+76561197961015596, 
+76561197961224260, 
+76561197962540890, 
+76561197963649682, 
+76561197979314459, 
+76561197982354896, 
+76561197996198378, 
+76561198017738343, 
+76561198067483708]
