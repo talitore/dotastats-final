@@ -1,0 +1,7 @@
+<h1>Player</h1>
+
+<%= form_tag("/player/show", method: "get") do %>
+  <%= label_tag(:dotabuff_url, "dotabuff.com url:") %>
+  <%= text_field_tag(:dotabuff_url) %>
+  <%= submit_tag("Search") %>
+<% end %>

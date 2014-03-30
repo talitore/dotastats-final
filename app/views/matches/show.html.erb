@@ -1,0 +1,17 @@
+<%= params.inspect %>
+<% if !@match %>
+	<h1>Match not found!</h1>
+<% else %>
+	<table>
+		<thead>
+			<tr>
+				<th>Match <%= @match.match_id %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%= content_tag_for(:tr, @match_players) do |player| %>
+				<td><%= player.personaname %></td>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

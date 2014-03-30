@@ -1,0 +1,8 @@
+Player#search
+<h1>Find match by player</h1>
+
+<%= form_tag("/matches/show", method: "get") do %>
+  <%= label_tag(:dotabuff_url, "dotabuff.com url:") %>
+  <%= text_field_tag(:dotabuff_url) %>
+  <%= submit_tag("Search") %>
+<% end %>

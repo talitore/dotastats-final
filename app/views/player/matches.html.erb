@@ -1,0 +1,14 @@
+<% if !@player %>
+	<h1>Player not found!</h1>
+<% else %>
+	<table>
+		<tr>
+			<td><h1>Player <%= @player.personaname %></h1></td>
+		</tr>
+		<% @matches.each do |match| %>
+			<tr>
+				<td><%= link_to match[:match_id].to_s, "/matches/#{match[:match_id]}" %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
