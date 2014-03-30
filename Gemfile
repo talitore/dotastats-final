@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
-gem 'zurb-foundation'
+# gem 'zurb-foundation'
+gem 'foundation-rails'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
