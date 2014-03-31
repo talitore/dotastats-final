@@ -1,6 +1,6 @@
 class Match < ActiveRecord::Base
   has_many :match_histories
-  has_many :steam_ids, through: :match_histories, source: :players
+  has_many :players, through: :match_histories, foreign_key: :steam_id
 
   include MyUtils
 

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330163117) do
+ActiveRecord::Schema.define(version: 20140331005144) do
 
   create_table "match_histories", force: true do |t|
-    t.integer "players_id", limit: 8
-    t.integer "matches_id", limit: 8
+    t.integer "steam_id", limit: 8
+    t.integer "match_id", limit: 8
   end
 
-  add_index "match_histories", ["players_id", "matches_id"], name: "index_match_histories_on_players_id_and_matches_id", using: :btree
+  add_index "match_histories", ["steam_id", "match_id"], name: "index_match_histories_on_steam_id_and_match_id", using: :btree
 
   create_table "matches", force: true do |t|
     t.integer  "match_id",      limit: 8

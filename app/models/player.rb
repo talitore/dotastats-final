@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
-  has_many :match_histories
-  has_many :match_ids, through: :match_histories, source: :matches
+  has_many :match_histories, foreign_key: :steam_id, primary_key: :steam_id
+  has_many :matches, through: :match_histories
 
   include MyUtils
   require 'open-uri'
