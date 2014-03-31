@@ -1,94 +1,96 @@
-<% if !@player %>
-	<h1>Player not found!</h1>
-<% else %>
-	<table>
-		<tr>
-			<td><h1>Player <%= @player.personaname %></h1></td>
-			<td><%= link_to 'Matches', player_matches_url(player_id: @player.steam_id) %></td>
-		</tr>
-		<tr>
-			<td>steam id:</td>
-			<td><%= @player.steam_id %></td>
-		</tr>
-		<tr>
-			<td>personaname:</td>
-			<td><%= @player.personaname %></td>
-		</tr>
-		<tr>
-			<td>profileurl:</td>
-			<td><%= @player.profileurl %></td>
-		</tr>
-		<tr>
-			<td>avatar:</td>
-			<td><img src="<%= @player.avatar %>"></td>
-		</tr>
-		<tr>
-			<td>avatarmedium:</td>
-			<td><img src="<%= @player.avatarmedium %>"></td>
-		</tr>
-		<tr>
-			<td>avatarfull:</td>
-			<td><img src="<%= @player.avatarfull %>"></td>
-		</tr>
-		<tr>
-			<td>personastate:</td>
-			<td><%= @player.personastate %></td>
-		</tr>
-		<tr>
-			<td>communityvisibilitystate:</td>
-			<td><%= @player.communityvisibilitystate %></td>
-		</tr>
-		<tr>
-			<td>profilestate:</td>
-			<td><%= @player.profilestate %></td>
-		</tr>
-		<tr>
-			<td>lastlogoff:</td>
-			<td><%= @player.lastlogoff %></td>
-		</tr>
-		<tr>
-			<td>realname:</td>
-			<td><%= @player.realname %></td>
-		</tr>
-		<tr>
-			<td>primaryclanid:</td>
-			<td><%= @player.primaryclanid %></td>
-		</tr>
-		<tr>
-			<td>timecreated:</td>
-			<td><%= @player.timecreated %></td>
-		</tr>
-		<tr>
-			<td>gameid:</td>
-			<td><%= @player.gameid %></td>
-		</tr>
-		<tr>
-			<td>gameserverip:</td>
-			<td><%= @player.gameserverip %></td>
-		</tr>
-		<tr>
-			<td>gameserversteamdid:</td>
-			<td><%= @player.gameserversteamid %></td>
-		</tr>
-		<tr>
-			<td>gameextrainfo:</td>
-			<td><%= @player.gameextrainfo %></td>
-		</tr>
-		<tr>
-			<td>loccountrycode:</td>
-			<td><%= @player.loccountrycode %></td>
-		</tr>
-		<tr>
-			<td>locstatecode:</td>
-			<td><%= @player.locstatecode %></td>
-		</tr>
-		<tr>
-			<td>loccityid:</td>
-			<td><%= @player.loccityid %></td>
-		</tr>
-		<tr>
-			<td>commentpermission:</td>
-			<td><%= @player.commentpermission %></td>
-		</tr>
-	</table>
-<% end %>
+<div class="row">
+	<% if !@player %>
+		<h1 class="large-12 columns">Player not found!</h1>
+	<% else %>
+		<table class="large-12 columns">
+			<tr>
+				<td><h1>Player <%= @player.personaname %></h1></td>
+				<td><%= link_to 'Matches', player_matches_url(steam_id: @player.steam_id) %></td>
+			</tr>
+			<tr>
+				<td>steam id:</td>
+				<td><%= @player.steam_id %></td>
+			</tr>
+			<tr>
+				<td>personaname:</td>
+				<td><%= @player.personaname %></td>
+			</tr>
+			<tr>
+				<td>profileurl:</td>
+				<td><%= @player.profileurl %></td>
+			</tr>
+			<tr>
+				<td>avatar:</td>
+				<td><img src="<%= @player.avatar %>"></td>
+			</tr>
+			<tr>
+				<td>avatarmedium:</td>
+				<td><img src="<%= @player.avatarmedium %>"></td>
+			</tr>
+			<tr>
+				<td>avatarfull:</td>
+				<td><img src="<%= @player.avatarfull %>"></td>
+			</tr>
+			<tr>
+				<td>personastate:</td>
+				<td><%= @player.personastate %></td>
+			</tr>
+			<tr>
+				<td>communityvisibilitystate:</td>
+				<td><%= @player.communityvisibilitystate %></td>
+			</tr>
+			<tr>
+				<td>profilestate:</td>
+				<td><%= @player.profilestate %></td>
+			</tr>
+			<tr>
+				<td>lastlogoff:</td>
+				<td><%= @player.lastlogoff %></td>
+			</tr>
+			<tr>
+				<td>realname:</td>
+				<td><%= @player.realname %></td>
+			</tr>
+			<tr>
+				<td>primaryclanid:</td>
+				<td><%= @player.primaryclanid %></td>
+			</tr>
+			<tr>
+				<td>timecreated:</td>
+				<td><%= @player.timecreated %></td>
+			</tr>
+			<tr>
+				<td>gameid:</td>
+				<td><%= @player.gameid %></td>
+			</tr>
+			<tr>
+				<td>gameserverip:</td>
+				<td><%= @player.gameserverip %></td>
+			</tr>
+			<tr>
+				<td>gameserversteamdid:</td>
+				<td><%= @player.gameserversteamid %></td>
+			</tr>
+			<tr>
+				<td>gameextrainfo:</td>
+				<td><%= @player.gameextrainfo %></td>
+			</tr>
+			<tr>
+				<td>loccountrycode:</td>
+				<td><%= @player.loccountrycode %></td>
+			</tr>
+			<tr>
+				<td>locstatecode:</td>
+				<td><%= @player.locstatecode %></td>
+			</tr>
+			<tr>
+				<td>loccityid:</td>
+				<td><%= @player.loccityid %></td>
+			</tr>
+			<tr>
+				<td>commentpermission:</td>
+				<td><%= @player.commentpermission %></td>
+			</tr>
+		</table>
+	<% end %>
+</div>

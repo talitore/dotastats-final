@@ -22,13 +22,14 @@ class PlayerController < ApplicationController
       else
         steamid = MyUtils.to_64bit(URI.parse(params[:dotabuff_url]).path.split('/').last.to_i)
         steamid = 76561202255233023 if steamid == 76561197960265728
-        @player = get_player_info steamid
+        @player = get_player_info(steamid)
       end
     end
   end
 
   def matches
-    @matches = Player.match_ids
+    @player = Player.find_by_steam_id(params[:steam_id])
+    @matches = @player.matches
   end
 
   #Non-views
