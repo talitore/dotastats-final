@@ -45,10 +45,12 @@ class PlayerController < ApplicationController
           player_info[:steam_id] = player_info[:steamid]
           player_info.delete :steamid
           player = Player.new(player_info)
+          player.save
         else
           player = nil
         end
       end
+      player
     end
   end
 
