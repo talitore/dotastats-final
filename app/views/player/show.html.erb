@@ -4,11 +4,11 @@
 	<table>
 		<tr>
 			<td><h1>Player <%= @player.personaname %></h1></td>
-			<td><%= link_to 'Matches', player_matches_url(player_id: @player.steamid) %></td>
+			<td><%= link_to 'Matches', player_matches_url(player_id: @player.steam_id) %></td>
 		</tr>
 		<tr>
 			<td>steam id:</td>
-			<td><%= @player.steamid %></td>
+			<td><%= @player.steam_id %></td>
 		</tr>
 		<tr>
 			<td>personaname:</td>

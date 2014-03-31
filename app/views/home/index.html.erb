@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="small-3 small-centered columns">
+		<h1> dotastats </h1>
+	</div>
+</div>
+<div class="row collapse has-form">
+	<div class="small-10 columns">
+		<%= form_tag("/player/show", method: "get") do %>
+		  <%= text_field_tag :dotabuff_url, '', placeholder: "dotabuff url"  %>
+  </div>
+  <div class="small-2 columns">
+	  	<%= submit_tag "Search", class: "button postfix" %>
+  </div>
+		<% end %>
+</div>
